@@ -3,14 +3,23 @@
 
 {% block content %}
 
-    <ul>
+    <ul class="list-group">
         {% for message in all_messages %}
-            <li>{{ message.user }} - {{ message.body }}</li>
+            <li class="list-group-item">
+                <a href="/csrf/{{ message.id }}">
+                    {{ message.id }} - {{ message.user }} - {{ message.body |slice:":100"}}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 
+    <a href="/csrf/post_comment"> Ajouter un message</a>
+
+    <br>
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Se déconnecter</a>
     {% endif %}
+
+
 
 {% endblock %}

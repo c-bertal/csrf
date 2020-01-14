@@ -1,0 +1,8 @@
+{% extends 'core/layout.html' %}
+
+{% block content %}
+    <h2> Utilisateur :</h2>
+    <p>{{ message.user }}</p>
+    <h2> Message :</h2>
+    <p>{{ message.body |safe|escape }}</p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'core/layout.html' %}
+
+
+{% block content %}
+    <h2>Poster un commentaire</h2>
+    <form method="get" action="save_comment">
+        {# {% csrf_token %} #}
+        <label for="body">Message : </label>
+        <input type="text" name="body">
+        <input type="submit" value="Créer">
+    </form>
+
+{% endblock %}
