@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap-reboot.min.css' %}">
+</head>
+<body>
+
+    <!-- Main content block -->
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- JS Scripts section -->
+    <script type="text/javascript" src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+
+
+</body>
+</html>
