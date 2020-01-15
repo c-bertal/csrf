@@ -31,7 +31,7 @@
                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseBdi"
                                 aria-expanded="false"
                                 aria-controls="collapseBdi">
-                            <b>2. Le problème</b>
+                            <b>2. Le CSRF</b>
                         </button>
                     </h5>
                 </div>
@@ -47,7 +47,7 @@
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseAsd"
                                 aria-expanded="false" aria-controls="collapseAsd">
-                            <b>3. Interprétation de balises dans les messages</b>
+                            <b>3. XSS</b>
                         </button>
                     </h5>
                 </div>
@@ -80,10 +80,10 @@
                             &lt;img src="http://127.0.0.1:8000/csrf/save_comment?body=HACKED"&gt;
                         </pre>
                         <br>
-                        Variante, sans src:
+                        Variante :
                         <br>
                         <pre>
-                            &lt;img src="" onerror="a = new XMLHttpRequest(); a.open('GET', 'http://127.0.0.1:8000/csrf/save_comment?body=NOSRCHACKED'); a.send();"&gt;
+                            &lt;img src="" onerror="a = new XMLHttpRequest(); a.open('GET', 'http://127.0.0.1:8000/csrf/save_comment?body=JSCHACKED'); a.send();"&gt;
                         </pre>
                         <br>
                         Limitation de cet appel : GET
@@ -103,7 +103,6 @@
                     <div class="card-body">
                         Démonstration de l'appel avec une balise &lt;form&gt;
                         <br>
-                        Permet de gérer simplement un POST
                         <br>
                         <br>
                         <pre>
@@ -129,6 +128,11 @@
                     <div class="card-body">
                         Changer le mot de passe de l'admin au lieu de poster des messages
                     </div>
+                    <br>
+                    <br>
+                    <pre>
+                        &lt;img src="http://127.0.0.1:8000/csrf/update_password?newpassword=toto"&gt;
+                    </pre>
                 </div>
             </div>
             <div class="card">
