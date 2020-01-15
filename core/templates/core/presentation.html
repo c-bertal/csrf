@@ -22,9 +22,9 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
-                        Présentation rapide du site web
+                        <p>Présentation rapide du site web</p>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div id="collapseBdi" class="collapse" aria-labelledby="headingBdi" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
                         Le principe d'une attaque CSRF
                     </div>
@@ -60,11 +60,12 @@
                 <div id="collapseAsd" class="collapse" aria-labelledby="headingAsd" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
                         Démonstration de l'appel avec une balise &lt;script&gt;
                         <br>
                         Uniquement afin de faciliter les tests :
+                        <br>
                         <br>
                         <pre>
                             &lt;script&gt;alert('ALED')&lt;/script&gt;
@@ -84,21 +85,17 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
-                        Démonstration de l'appel avec une balise &lt;img&gt;
-                        <br>
+                        <p>Démonstration de l'appel avec une balise &lt;img&gt;</p>
                         <pre>
                             &lt;img src="http://127.0.0.1:8000/csrf/save_comment?body=HACKED"&gt;
                         </pre>
-                        <br>
-                        Variante :
-                        <br>
+                        <p>Variante :</p>
                         <pre>
                             &lt;img src="" onerror="a = new XMLHttpRequest(); a.open('GET', 'http://127.0.0.1:8000/csrf/save_comment?body=JSCHACKED'); a.send();"&gt;
                         </pre>
-                        <br>
-                        Limitation de cet appel : GET
+                        <p>Limitation de cet appel : GET</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +111,7 @@
                 <div id="collapseLdj" class="collapse" aria-labelledby="headingLdj" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
                         Démonstration de l'appel avec une balise &lt;form&gt;
                         <br>
@@ -142,7 +139,7 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
                         Changer le mot de passe de l'admin au lieu de poster des messages
                     </div>
@@ -165,13 +162,13 @@
                 <div id="collapseNch" class="collapse" aria-labelledby="headingNch" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
-                        Activation de la défense CSRF standard
-                        <br>
-                        Qu'est-ce qu'elle ajoute
-                        <br>
-                        Démonstration des anciennes attaques
+                        <p>Principe du Synchronizer Pattern - Statefull</p>
+                        <p>En réalité : Double Submit Pattern - Stateless</p>
+                        <p>Activation de la défense CSRF standard</p>
+                        <p>Qu'est-ce qu'elle ajoute</p>
+                        <p>Les anciennes attaques</p>
                     </div>
                 </div>
             </div>
@@ -187,11 +184,10 @@
                 <div id="collapseBku" class="collapse" aria-labelledby="headingBku" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
-                        Possibilité de contrer le CSRF tel que montré
-                        <br>
-                        Exemple:
+                        <p>Possibilité de contrer le CSRF tel que montré</p>
+                        <p>Exemple:</p>
                         <br>
                         <pre>
                             &lt;form method='POST' action='http://127.0.0.1:8000/csrf/save_comment_post' id="csrf-form"&gt;
@@ -228,7 +224,7 @@
                         </pre>
 
                         <br>
-                        Limitations de cette attaque
+                        <p>Limitations de cette attaque</p>
                     </div>
                 </div>
             </div>
@@ -244,9 +240,12 @@
                 <div id="collapseMdx" class="collapse" aria-labelledby="headingMdx" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
-                        //TODO
+                        XSS
+                        <br>
+                        Sous domaine
+                        <br>
                     </div>
                 </div>
             </div>
@@ -262,7 +261,7 @@
                 <div id="collapsePsx" class="collapse" aria-labelledby="headingPsx" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary">C</span>
                         </div>
                         Implémentation de la méthode par chiffrement
                         <br>
@@ -282,7 +281,7 @@
                 <div id="collapseWkz" class="collapse" aria-labelledby="headingWkz" data-parent="#accordion">
                     <div class="card-body">
                         <div class="float-right">
-                            <span class="badge badge-pill badge-secondary">Y</span>
+                            <span class="badge badge-pill badge-secondary"></span>
                         </div>
                         Conclusion
                     </div>
