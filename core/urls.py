@@ -3,8 +3,8 @@ from core.views import *
 
 
 urlpatterns = [
-    path('presentation', presentation, name='presentation'),
     path('', index, name='index'),
+    path('presentation', presentation, name='presentation'),
     path('<int:pk>', view_comment, name='view_comment'),
     path('post_comment', post_comment, name='post_comment'),
     path('save_comment', save_comment, name='save_comment'),

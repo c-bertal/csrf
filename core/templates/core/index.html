@@ -7,7 +7,7 @@
         {% for message in all_messages %}
             <li class="list-group-item">
                 <a href="/csrf/{{ message.id }}">
-                    {{ message.id }} - {{ message.user }} - {{ message.body |slice:":100"}}
+                    {{ message.id }} - {{ message.user }} - {{ message.body }}
                 </a>
             </li>
         {% endfor %}

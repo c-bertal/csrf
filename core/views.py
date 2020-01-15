@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from pip._internal import req
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 from .models import Message
 
@@ -43,6 +43,7 @@ def save_comment(request):
     return redirect('/csrf')
 
 
+@csrf_protect
 @login_required
 def save_comment_post(request):
     # on récupere les champs

