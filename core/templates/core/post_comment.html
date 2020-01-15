@@ -15,7 +15,7 @@
     <br>
     <h3>Formulaire POST</h3>
     <form method="post" action="save_comment_post">
-        {% csrf_token %}
+        {# {% csrf_token %} #}
         <label for="body">Message : </label>
         <input type="text" name="body">
         <input type="submit" value="Créer">

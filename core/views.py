@@ -43,7 +43,7 @@ def save_comment(request):
     return redirect('/csrf')
 
 
-@csrf_protect
+#@csrf_protect
 @login_required
 def save_comment_post(request):
     # on récupere les champs
