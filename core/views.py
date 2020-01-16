@@ -34,6 +34,7 @@ def post_comment(request):
     return render(request, 'core/post_comment.html', context)
 
 
+#@csrf_protect
 @login_required
 def save_comment(request):
     # on récupere les champs

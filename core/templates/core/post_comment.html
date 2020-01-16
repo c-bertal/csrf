@@ -7,14 +7,14 @@
     <br>
     <h3>Formulaire GET</h3>
     <form method="get" action="save_comment">
-        {# {% csrf_token %} #}
+        {% csrf_token %}
         <label for="body">Message : </label>
         <input type="text" name="body">
         <input type="submit" value="Créer">
     </form>
     <br>
 
-    <!--
+
     <h3>Formulaire POST</h3>
     <form method="post" action="save_comment_post">
         {# {% csrf_token %} #}
@@ -22,7 +22,7 @@
         <input type="text" name="body">
         <input type="submit" value="Créer">
     </form>
-    -->
+
 
     <!--
     <h3>Formulaire CSRF chiffré</h3>
