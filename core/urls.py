@@ -10,5 +10,5 @@ urlpatterns = [
     path('save_comment', save_comment, name='save_comment'),
     path('save_comment_post', save_comment_post, name='save_comment_post'),
     path('update_password', update_password, name='save_comment'),
-
+    path('save_comment_encrypt', save_comment_encrypt, name='save_comment_encrypt'),
 ]
